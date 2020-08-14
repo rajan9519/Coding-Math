@@ -6,24 +6,19 @@ window.onload = function () {
 
   const centerY = height * 0.5;
   const centerX = width * 0.5;
-  const xradius = 200;
-  const yradius = 150;
-  const xspeed = 0.05;
-  const yspeed = 0.07;
-  let xangle = 0;
-  let yangle = 0;
+  const radius = 200;
+  const number = 20;
 
-  render();
-  function render() {
-    //context.clearRect(0, 0, width, height);
-    const y = centerY + Math.sin(yangle) * yradius;
-    const x = centerX + Math.cos(xangle) * xradius;
+  let angle = 0;
+  const slice = (2 * Math.PI) / number;
+
+  for (let i = 0; i < number; i++) {
+    const y = centerY + Math.sin(angle) * radius;
+    const x = centerX + Math.cos(angle) * radius;
     context.beginPath();
     context.arc(x, y, 10, 0, Math.PI * 2, false);
     context.fill();
 
-    xangle += xspeed;
-    yangle += yspeed;
-    requestAnimationFrame(render);
+    angle += slice;
   }
 };
