@@ -8,19 +8,22 @@ window.onload = function () {
   const centerX = width * 0.5;
   const xradius = 200;
   const yradius = 150;
-  const speed = 0.05;
-  let angle = 0;
+  const xspeed = 0.05;
+  const yspeed = 0.07;
+  let xangle = 0;
+  let yangle = 0;
 
   render();
   function render() {
-    context.clearRect(0, 0, width, height);
-    const y = centerY + Math.sin(angle) * xradius;
-    const x = centerX + Math.cos(angle) * yradius;
+    //context.clearRect(0, 0, width, height);
+    const y = centerY + Math.sin(yangle) * yradius;
+    const x = centerX + Math.cos(xangle) * xradius;
     context.beginPath();
-    context.arc(x, y, 50, 0, Math.PI * 2, false);
+    context.arc(x, y, 10, 0, Math.PI * 2, false);
     context.fill();
 
-    angle += speed;
+    xangle += xspeed;
+    yangle += yspeed;
     requestAnimationFrame(render);
   }
 };
