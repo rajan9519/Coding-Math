@@ -8,3 +8,6 @@ function Particle(x, y, speed, direction) {
 Particle.prototype.update = function () {
   this._position.addTo(this._velocity);
 };
+Particle.prototype.accelerate = function (accel) {
+  this._velocity.addTo(accel);
+};
