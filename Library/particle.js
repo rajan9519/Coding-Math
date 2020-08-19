@@ -1,4 +1,4 @@
-function Particle(x, y, speed, direction, grav = 0) {
+function Particle(x, y, speed = 0, direction = 0, grav = 0) {
   this._position = new Vector(x, y);
   this._velocity = new Vector();
   this._velocity.setLength(speed);
