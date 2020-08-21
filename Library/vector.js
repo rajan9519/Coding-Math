@@ -28,7 +28,7 @@ Vector.prototype.setLength = function (length) {
   this._y = Math.sin(angle) * length;
 };
 Vector.prototype.getLength = function () {
-  return Math.sqrt(this._x * this._x, this._y * this._y);
+  return Math.sqrt(this._x * this._x + this._y * this._y);
 };
 Vector.prototype.add = function (other) {
   return new Vector(this._x + other.getX(), this._y + other.getY());
