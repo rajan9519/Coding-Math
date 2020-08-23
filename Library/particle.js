@@ -1,13 +1,23 @@
-function Particle(x, y, speed = 0, direction = 0, grav = 0, mass = 1) {
+function Particle(
+  x,
+  y,
+  speed = 0,
+  direction = 0,
+  grav = 0,
+  mass = 1,
+  friction = 1
+) {
   this._position = new Vector(x, y);
   this._velocity = new Vector();
   this._velocity.setLength(speed);
   this._velocity.setAngle(direction);
   this._gravity = new Vector(0, grav);
   this._mass = mass;
+  this._friction = friction;
 }
 
 Particle.prototype.update = function () {
+  this._velocity.multiplyBy(this._friction);
   this._velocity.addTo(this._gravity);
   this._position.addTo(this._velocity);
 };
